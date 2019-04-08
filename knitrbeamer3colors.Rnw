@@ -141,12 +141,12 @@
 
 
 % Frame
-\begin{frame}{List, normal and alerted text}
+\begin{frame}[fragile]{List, normal and alerted text}
 
 \begin{itemize}
   \setlength{\itemsep}{15pt}
   \item The three main colors used in this template are \textcolor{mblue}{blue}, \textcolor{mred}{red} and \textcolor{mgreen}{green}. \\
-  \item You can easily define new colors using the command \texttt{\definecolor{mgreen}{rgb}{0,0.6,0.35}} and change template colors. \\
+  \item You can easily define new colors and change template colors using the command: \begin{semiverbatim}\\definecolor\{colorname\}\{rgb\}\{0.333, 0.333, 0.333\}\end{semiverbatim}
   \item This is some normal text, \alert{alerted text}, \textbf{bold text} and \textit{italic text}. \\
   \item This is an url: \href{http://www.anthonycoache.ca}{anthonycoache.ca}.
 \end{itemize}

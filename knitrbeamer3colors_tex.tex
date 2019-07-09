@@ -16,6 +16,7 @@
 \usepackage{amsmath,amssymb, mathtools} % Many mathematicals symbols
 \usepackage{url} % \url{} command
 \usepackage{color} % Colors
+\usepackage{natbib} % Citations
 
 % Load theme
 \usecolortheme{beaver}
@@ -24,7 +25,7 @@
 \definecolor{mgreen}{rgb}{0,0.6,0.35}
 \definecolor{mblue}{rgb}{0,0.4,0.6}
 \definecolor{mred}{rgb}{0.9,0.3,0}
-\definecolor{mgrey}{rgb}{0.95,0.95,0.95}
+\definecolor{mgrey}{rgb}{0.85,0.85,0.85}
 \definecolor{mblack}{rgb}{0,0,0}
 
 % Remove navigation symbols
@@ -48,7 +49,7 @@
 
 % Set colors for text, titles, etc.
 \setbeamercolor{title}{fg=mblue}
-\setbeamercolor{frametitle}{fg=mblue}
+\setbeamercolor{frametitle}{fg=mblue,bg=mgrey}
 \setbeamercolor{alerted text}{fg=mred}
 \setbeamercolor{block title}{fg=mblue}
 \setbeamercolor{item projected}{bg=mblue}
@@ -157,6 +158,29 @@
 
 
 % Frame
+\begin{frame}{Frame with multiple columns}
+
+\begin{minipage}[t]{0.3\linewidth}
+	
+	With the \texttt{minipage} environment, you can put multiple columns on the same frame.
+	
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.66\linewidth}
+	
+	This can be useful if you want to comment a figure, a table or R code on the same slide. Be careful with the width of the minipage argument, otherwise you will not obtain two or more distinct columns. The sum of them needs to be less than 1.
+	
+	\vspace*{0.25cm}
+	
+	\centerline{\includegraphics[width=0.95\textwidth]{placeholder.png}}
+	
+	
+\end{minipage}
+
+\end{frame}
+
+
+% Frame
 \begin{frame}{Figures}
 
 \begin{figure}
@@ -218,16 +242,20 @@ This is a theorem block: $$a^2 + b^2 = c^2.$$
 
 
 % References
-\begin{frame}[plain, fragile]{References}
+\begin{frame}{References}
 
-Create a \texttt{ref.bib} file and add the following commands in this frame: \\
+With the \texttt{natbib} package, you can either refer to the book of \citet{casella2002statistical} or cite it between parentheses \citep{rosenthal2006struck}. 
 
-\begin{semiverbatim}
-\\footnotesize\{
-\\bibliographystyle\{apalike\}
-\\bibliography\{ref\}
-\}
-\end{semiverbatim}
+\vspace*{0.5cm}
+
+Then this is where you use your \texttt{references.bib} file. You can also add the \texttt{allowframebreaks} chunk options to put references on more than one page. \\
+
+\vspace*{0.5cm}
+
+\footnotesize{
+	\bibliographystyle{apalike}
+	\bibliography{references}
+}
 
 
 \end{frame}
@@ -248,13 +276,3 @@ Create a \texttt{ref.bib} file and add the following commands in this frame: \\
 }
 
 \end{document}
-
-
-
-
-
-
-
-
-
-

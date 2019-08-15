@@ -10,7 +10,7 @@ For more information about **knitr** and options of R code chunks, see https://y
 ## Define new colors
 
 
-If you want to change the three colors to create another color theme in any file (i.e. .Rnw or .tex), set new RGB color codes in the following commands:
+There are already two color themes in this template: a light and a dark theme. If you want to change the three colors to create another color theme in any file (i.e. .Rnw or .tex), set new RGB color codes in the following commands:
 
 ```tex
 % Define colors

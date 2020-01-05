@@ -336,18 +336,20 @@ Then this is where you use your \texttt{references.bib} file. You can also add t
 
 % Last frame
 {
-\setbeamercolor{background canvas}{bg=mgrey}
+\setbeamercolor{background canvas}{use=frametitle, bg=frametitle.bg}
+\setbeamercolor{normal text}{use=frametitle, fg=frametitle.fg}
+\usebeamercolor[fg]{normal text}
 
 \begin{frame}[plain]
 
 \begin{center}
-\textcolor{mblue}{\Large{Thank you!}}
+	\Large{Thank you!}
 \end{center}
 
 \vspace*{0.25cm}
 
 \begin{center}
-	\textcolor{mblue}{\textit{Beamer template is available on:}} \href{https://github.com/acoache/knitr-beamer-3colors}{github.com/acoache/knitr-beamer-3colors}
+	\textit{Beamer template is available on:} \href{https://github.com/acoache/knitr-beamer-3colors}{\color{frametitle.fg}{github.com/acoache/knitr-beamer-3colors}}
 \end{center}
 
 

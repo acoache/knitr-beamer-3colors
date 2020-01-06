@@ -8,130 +8,9 @@
 \usepackage{color} % Colors
 \usepackage{natbib} % Citations
 
-%%%%%-- Colors customization section --%%%%%
-
-% Load theme
-\usecolortheme{beaver}
-
-%%%%%-- LIGHT THEME (Comment the DARK THEME section to use this theme) --%%%%%
-
-% Define colors
-\definecolor{mgreen}{rgb}{0,0.6,0.35}
-\definecolor{mblue}{rgb}{0,0.4,0.6}
-\definecolor{mred}{rgb}{0.9,0.3,0}
-\definecolor{mgrey}{rgb}{0.85,0.85,0.85}
-\definecolor{mblack}{rgb}{0,0,0}
-
-% Change block environment
-\newenvironment{mblock}[1]{
-	\setbeamercolor{block body}{bg=white}
-	\setbeamercolor{block title}{fg=mblue,bg=white}
-	\begin{block}{#1}}{\end{block}}
-
-% Create a definition environment
-\newenvironment{defnt}[1]{
-	\setbeamercolor{block body}{bg=mgrey}
-	\setbeamercolor{block title}{fg=mblue,bg=mgrey}
-	\begin{block}{#1}}{\end{block}}
-
-% Create a theorem environment
-\newenvironment{thm}[1]{
-	\setbeamercolor{block body}{bg=mgrey}
-	\setbeamercolor{block title}{fg=mred,bg=mgrey}
-	\begin{block}{#1}}{\end{block}}
-
-% Set colors for text, titles, etc.
-\setbeamercolor{title}{fg=mblue}
-\setbeamercolor{frametitle}{fg=mblue,bg=mgrey}
-\setbeamercolor{alerted text}{fg=mred}
-\setbeamercolor{block title}{fg=mblue}
-\setbeamercolor{item projected}{bg=mblue}
-\setbeamercolor{item}{fg=mblue}
-\setbeamercolor{caption name}{fg=mblue}
-\setbeamercolor{normal text}{fg=black!90,bg=white}
-\hypersetup{pdfborder={0 0 0},colorlinks=true,linkcolor=mblue,urlcolor=mblue,citecolor=mblue}
-
-% Set beamer headline
-\setbeamertemplate{headline}{
-	\leavevmode
-	\hbox{
-		\begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.125ex]{mblue}
-			~~~~\insertsection
-		\end{beamercolorbox}
-	}
-}
-
-% Set beamer footline
-\setbeamertemplate{footline}[text line]{
-	\hfill\strut{
-		\scriptsize\sf\color{black!60}
-		\quad\insertframenumber
-	}
-	\hfill
-}
-
-%%%%%-- End of LIGHT THEME --%%%%%
-
-%%%%%-- DARK THEME (Comment the LIGHT THEME section to use this theme) --%%%%%
-% 
-% % Define colors
-% \definecolor{mgreen}{rgb}{0,0.455,0.247}
-% \definecolor{mblue}{rgb}{0.098,0.18,0.357}
-% \definecolor{mred}{rgb}{0.949,0.431,0.016}
-% \definecolor{mgrey}{rgb}{0.90,0.90,0.90}
-% \definecolor{mblack}{rgb}{0,0,0}
-% 
-% % Change block environment
-% \newenvironment{mblock}[1]{
-% \setbeamercolor{block body}{bg=mblue!20}
-% \setbeamercolor{block title}{fg=mblue,bg=mblue!30}
-% \begin{block}{#1}}{\end{block}}
-% 
-% % Create a definition environment
-% \newenvironment{defnt}[1]{
-% \setbeamercolor{block body}{bg=mgreen!20}
-% \setbeamercolor{block title}{fg=mgreen,bg=mgreen!30}
-% \begin{block}{#1}}{\end{block}}
-% 
-% % Create a theorem environment
-% \newenvironment{thm}[1]{
-% \setbeamercolor{block body}{bg=mred!20}
-% \setbeamercolor{block title}{fg=mred,bg=mred!30}
-% \begin{block}{#1}}{\end{block}}
-% 
-% % Set colors for text, titles, etc.
-% \setbeamercolor{title}{fg=white,bg=mblue}
-% \setbeamercolor{frametitle}{fg=white,bg=mblue}
-% \setbeamercolor{alerted text}{fg=mred}
-% \setbeamercolor{block title}{fg=mblue}
-% \setbeamercolor{item projected}{bg=mblue}
-% \setbeamercolor{item}{fg=mblue}
-% \setbeamercolor{caption name}{fg=mgreen}
-% \setbeamercolor{normal text}{fg=black!90,bg=mblue!10}
-% \hypersetup{pdfborder={0 0 0},colorlinks=true,linkcolor=mblue,urlcolor=mgreen,citecolor=mgreen}
-% 
-% % Set beamer headline
-% \setbeamertemplate{headline}{
-% \leavevmode
-% \hbox{
-% 	\begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.125ex]{mblue}
-% 		~~~~\insertsection
-% 	\end{beamercolorbox}
-% }
-% }
-% 
-% % Set beamer footline
-% \setbeamertemplate{footline}[text line]{
-% \hfill\strut{
-% 	\scriptsize\sf\color{black!90}
-% 	\quad\insertframenumber
-% }
-% \hfill
-% }
-% 
-%%%%%-- End of DARK THEME --%%%%%
-
-%%%%%-- End of colors customization section --%%%%%
+% Use the knitr-beamer-3colors theme supplied with this template
+\usetheme{knitr-beamer-3colors}
+%\usetheme[DarkTheme]{knitr-beamer-3colors}
 
 % Redefine R code colors
 \renewcommand{\hlnum}[1]{\textcolor{mblue}{#1}}%
@@ -142,18 +21,6 @@
 \renewcommand{\hlkwa}[1]{\textcolor{mgreen}{\textbf{#1}}}
 \renewcommand{\hlopt}[1]{\textcolor{mred}{#1}}%
 \renewcommand{\hlstd}[1]{\textcolor{mblack}{#1}}%
-
-% Remove navigation symbols
-\setbeamertemplate{navigation symbols}{}
-
-% Set itemize symbols
-\setbeamertemplate{enumerate items}{$\bullet$}
-\setbeamertemplate{itemize items}{$\bullet$}
-
-% Set beamer transparency of cover / uncover
-\setbeamercovered{transparent}
-
-%%%%%
 
 % Title slide information
 \title{Title of the presentation}

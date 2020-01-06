@@ -1,7 +1,6 @@
 \documentclass{beamer}
 
 % Load packages
-\usepackage{lmodern} % High quality font
 \usepackage{graphicx} % Graphics
 \usepackage{amsmath,amssymb, mathtools} % Many mathematicals symbols
 \usepackage{url} % \url{} command
@@ -197,7 +196,7 @@ Several options can be used with R chunks. To learn more about chunk options and
 This chunk is necessary to set colors for R graphics. If you change colors, change them in this chunk too. Don't forget to change \texttt{echo = FALSE} to not show this on your slides.
 
 
-<<echo=TRUE, warning=FALSE, message=FALSE>>=
+<<echo=TRUE, warning=FALSE, message=FALSE, size='scriptsize'>>=
 ## Graphics colors
 knitr::opts_chunk$set(
   background = '#FAFAFA', comment = '>'

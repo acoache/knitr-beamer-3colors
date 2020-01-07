@@ -202,9 +202,15 @@ knitr::opts_chunk$set(
   background = '#FAFAFA', comment = '>'
 )
 
+# Light theme
 mblue <- function(alpha = 1){rgb(0,0.4,0.6,alpha)}
 mred <- function(alpha = 1){rgb(0.9,0.3,0,alpha)}
 mgreen <- function(alpha = 1){rgb(0,0.6,0.35,alpha)}
+# Dark theme
+#mblue <- function(alpha = 1){rgb(0.098,0.18,0.357,alpha)}
+#mred <- function(alpha = 1){rgb(0.949,0.431,0.016,alpha)}
+#mgreen <- function(alpha = 1){rgb(0,0.455,0.247,alpha)}
+
 @
 
 

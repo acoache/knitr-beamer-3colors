@@ -1,0 +1,216 @@
+%==============================================================================
+% Beamer style for the beamer template posted at
+% https://github.com/acoache/knitr-beamer-3colors
+% 
+% Created by Anthony Coache (anthony.coache@gmail.com) in January 2020
+% Modified by Anthony Coache (anthony.coache@gmail.com) in April 2021
+% =============================================================================
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%                         Packages section
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Name of the package
+\ProvidesPackage{beamerthemeknitr-beamer-3colors}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{lmodern} % High quality font
+
+% Conditions for the light/dark theme
+\newif\if@doDarkTheme
+\@doDarkThemefalse
+\DeclareOption{DarkTheme}{\@doDarkThemetrue}
+\ProcessOptions
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%                     Colors customization section
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\if@doDarkTheme
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%                            DARK THEME
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Define colors
+\definecolor{mgreen}{rgb}{0,0.455,0.247}
+\definecolor{mblue}{rgb}{0.098,0.18,0.357}
+\definecolor{mred}{rgb}{0.949,0.431,0.016}
+\definecolor{mgrey}{rgb}{0.90,0.90,0.90}
+\definecolor{mblack}{rgb}{0,0,0}
+
+\definecolor{FrameTitleLeft}{rgb}{0.098,0.18,0.357}
+\definecolor{FrameTitleRight}{rgb}{0.1786,0.2531,0.4200}
+
+% Set different colors
+\colorlet{mblockBgColor}{mblue!20}
+\colorlet{mblockTitleBgColor}{mblue!30}
+\colorlet{mblockTitleTextColor}{mblue}
+
+\colorlet{defntBgColor}{mgreen!20}
+\colorlet{defntTitleBgColor}{mgreen!30}
+\colorlet{defntTitleTextColor}{mgreen}
+
+\colorlet{thmBgColor}{mred!20}
+\colorlet{thmTitleBgColor}{mred!30}
+\colorlet{thmTitleTextColor}{mred}
+
+\colorlet{MainColor}{mblue}
+\colorlet{BgColor}{mblue!10}
+\colorlet{NormalTextColor}{black!90}
+\colorlet{TitleTextColor}{white}
+\colorlet{TitleBgColor}{mblue}
+\colorlet{LinkColor}{mgreen}
+\colorlet{CaptionColor}{mgreen}
+\colorlet{AlertColor}{mred}
+\colorlet{HeadlineTextColor}{mblue}
+\colorlet{FootlineTextColor}{black!90}
+
+
+%%%%%-- End of DARK THEME --%%%%%
+\else
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%                            LIGHT THEME
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Define colors
+\definecolor{mgreen}{rgb}{0,0.6,0.35}
+\definecolor{mblue}{rgb}{0,0.4,0.6}
+\definecolor{mred}{rgb}{0.9,0.3,0}
+\definecolor{mgrey}{rgb}{0.85,0.85,0.85}
+\definecolor{mblack}{rgb}{0,0,0}
+\definecolor{FrameTitleLeft}{rgb}{0.85,0.85,0.85}
+\definecolor{FrameTitleRight}{rgb}{0.98,0.98,0.98}
+
+% Set different colors
+\colorlet{mblockBgColor}{mgrey}
+\colorlet{mblockTitleBgColor}{mgrey}
+\colorlet{mblockTitleTextColor}{mblue}
+
+\colorlet{defntBgColor}{white}
+\colorlet{defntTitleBgColor}{white}
+\colorlet{defntTitleTextColor}{mblue}
+
+\colorlet{thmBgColor}{mgrey}
+\colorlet{thmTitleBgColor}{mgrey}
+\colorlet{thmTitleTextColor}{mred}
+
+\colorlet{MainColor}{mblue}
+\colorlet{BgColor}{white}
+\colorlet{NormalTextColor}{black!90}
+\colorlet{TitleTextColor}{mblue}
+\colorlet{TitleBgColor}{mgrey}
+\colorlet{LinkColor}{mblue}
+\colorlet{CaptionColor}{mblue}
+\colorlet{AlertColor}{mred}
+
+\colorlet{HeadlineTextColor}{mblue}
+\colorlet{FootlineTextColor}{black!60}
+
+
+%%%%%-- End of LIGHT THEME --%%%%%
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%                        Configure visual aspects
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Change block environment
+\newenvironment{mblock}[1]{
+	\setbeamercolor{block body}{bg=mblockBgColor}
+	\setbeamercolor{block title}{fg=mblockTitleTextColor,bg=mblockTitleBgColor}
+	\begin{block}{#1}}{\end{block}}
+
+% Create a definition environment
+\newenvironment{defnt}[1]{
+	\setbeamercolor{block body}{bg=defntBgColor}
+	\setbeamercolor{block title}{fg=defntTitleTextColor,bg=defntTitleBgColor}
+	\begin{block}{#1}}{\end{block}}
+
+% Create a theorem environment
+\newenvironment{thm}[1]{
+	\setbeamercolor{block body}{bg=thmBgColor}
+	\setbeamercolor{block title}{fg=thmTitleTextColor,bg=thmTitleBgColor}
+	\begin{block}{#1}}{\end{block}}
+
+% Set colors for text, titles, etc.
+\setbeamercolor{title}{fg=TitleTextColor,bg=TitleBgColor}
+\setbeamercolor{frametitle}{fg=TitleTextColor}
+\setbeamercolor{alerted text}{fg=AlertColor}
+\setbeamercolor{block title}{fg=MainColor}
+\setbeamercolor{item projected}{bg=MainColor}
+\setbeamercolor{item}{fg=MainColor}
+\setbeamercolor{caption name}{fg=CaptionColor}
+\setbeamercolor{normal text}{fg=NormalTextColor,bg=BgColor}
+\hypersetup{pdfborder={0 0 0},colorlinks=true,linkcolor=MainColor,urlcolor=LinkColor,citecolor=LinkColor}
+
+
+% Set beamer headline
+\setbeamertemplate{headline}{
+	\leavevmode
+	\hbox{
+		\begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.125ex]{mblue}
+			~~~~\insertsection
+		\end{beamercolorbox}
+	}
+}
+
+% Set beamer frametitle
+\makeatletter
+\pgfdeclarehorizontalshading[FrameTitleLeft,FrameTitleRight]
+{beamer@frametitleshade}
+{\paperheight}{%
+	color(0pt)=(FrameTitleLeft);
+	color(\paperwidth)=(FrameTitleRight)}
+
+\setbeamertemplate{frametitle}{
+	\ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}
+	\hbox{\leavevmode
+		\beamer@tempdim=\textwidth%
+		\advance\beamer@tempdim by \beamer@leftmargin%
+		\advance\beamer@tempdim by \beamer@rightmargin%
+		\hskip-\Gm@lmargin\hbox{%
+			\setbox\beamer@tempbox=\hbox{\begin{minipage}[b]{\paperwidth}%
+					\vbox{}\vskip-0.255ex%
+					\leftskip0.14cm%
+					\strut\insertframetitle\par
+					\ifx\insertframesubtitle\@empty%
+					\else
+					\par{\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
+					\fi%
+					\nointerlineskip
+					\vbox{}%
+			\end{minipage}}%
+			\beamer@tempdim=\ht\beamer@tempbox%
+			\advance\beamer@tempdim by 4pt%
+			\begin{pgfpicture}{0pt}{0pt}{\paperwidth}{\beamer@tempdim}
+				\usebeamercolor{frametitle right}
+				\pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\beamer@tempdim}}
+				\pgfusepath{clip}
+				\pgftext[left,base]{\pgfuseshading{beamer@frametitleshade}}
+			\end{pgfpicture}
+			\hskip-\paperwidth%
+			\box\beamer@tempbox%
+		}%
+		\hskip-\Gm@rmargin%
+	}%
+	\vskip-2pt
+}
+\makeatother
+
+% Set beamer footline
+\setbeamertemplate{footline}[text line]{
+	\hfill\strut{
+		\scriptsize\sf\color{black!60}
+		\quad\insertframenumber
+	}
+	\hfill
+}
+
+% Remove navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+% Set itemize symbols
+\setbeamertemplate{enumerate items}{$\bullet$}
+\setbeamertemplate{itemize items}{$\bullet$}
+
+% Set beamer transparency of cover / uncover
+\setbeamercovered{transparent}

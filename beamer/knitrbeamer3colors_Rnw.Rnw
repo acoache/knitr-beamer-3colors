@@ -8,8 +8,8 @@
 \usepackage{natbib} % Citations
 
 % Use the knitr-beamer-3colors theme supplied with this template
-\usetheme{knitr-beamer-3colors}
-%\usetheme[DarkTheme]{knitr-beamer-3colors}
+%\usetheme{knitr-beamer-3colors}
+\usetheme[DarkTheme]{knitr-beamer-3colors}
 
 % Redefine R code colors
 \renewcommand{\hlnum}[1]{\textcolor{mblue}{#1}}%
@@ -291,8 +291,8 @@ Then this is where you use your \texttt{references.bib} file. You can also add t
 
 % Last frame
 {
-\setbeamercolor{background canvas}{use=frametitle, bg=frametitle.bg}
-\setbeamercolor{normal text}{use=frametitle, fg=frametitle.fg}
+\setbeamercolor{background canvas}{use=title, bg=title.bg}
+\setbeamercolor{normal text}{use=title, fg=title.fg}
 \usebeamercolor[fg]{normal text}
 
 \begin{frame}[plain]
@@ -304,7 +304,7 @@ Then this is where you use your \texttt{references.bib} file. You can also add t
 \vspace*{0.25cm}
 
 \begin{center}
-	\textit{Beamer template is available on:} \href{https://github.com/acoache/knitr-beamer-3colors}{\color{frametitle.fg}{github.com/acoache/knitr-beamer-3colors}}
+	\textit{Beamer template is available on:} \href{https://github.com/acoache/knitr-beamer-3colors}{\color{title.fg}{github.com/acoache/knitr-beamer-3colors}}
 \end{center}
 
 

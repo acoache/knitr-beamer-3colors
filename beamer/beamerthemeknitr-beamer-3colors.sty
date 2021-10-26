@@ -22,6 +22,9 @@
 \newif\if@doBlackAndWhite
 \@doBlackAndWhitefalse
 \DeclareOption{BlackAndWhite}{\@doBlackAndWhitetrue}
+\newif\if@doMetropolisTheme
+\@doMetropolisThemefalse
+\DeclareOption{MetropolisTheme}{\@doMetropolisThemetrue}
 \ProcessOptions
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -111,6 +114,49 @@
 
 
 %%%%%-- End of BLACK AND WHITE THEME --%%%%%
+\else
+\if@doMetropolisTheme
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%                            METROPOLIS THEME
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Define colors
+\definecolor{mbrown}{HTML}{604c38}
+\definecolor{mblue}{HTML}{23373b}
+\definecolor{mred}{HTML}{EB811B}
+\definecolor{mgreen}{HTML}{14B03D}
+\definecolor{mblack}{rgb}{0,0,0}
+\definecolor{mwhite}{rgb}{1,1,1}
+
+\colorlet{FrameTitleLeft}{mblue}
+\colorlet{FrameTitleRight}{mblue}
+
+% Set different colors
+\colorlet{mblockBgColor}{mred!20}
+\colorlet{mblockTitleBgColor}{mred!30}
+\colorlet{mblockTitleTextColor}{mred}
+
+\colorlet{defntBgColor}{mbrown!20}
+\colorlet{defntTitleBgColor}{mbrown!30}
+\colorlet{defntTitleTextColor}{mbrown}
+
+\colorlet{thmBgColor}{mblue!20}
+\colorlet{thmTitleBgColor}{mblue!30}
+\colorlet{thmTitleTextColor}{mblue}
+
+\colorlet{MainColor}{mblue}
+\colorlet{BgColor}{mwhite}
+\colorlet{NormalTextColor}{black!90}
+\colorlet{TitleTextColor}{mwhite}
+\colorlet{TitleBgColor}{mblue}
+\colorlet{LinkColor}{mgreen}
+\colorlet{CaptionColor}{mred}
+\colorlet{AlertColor}{mred}
+\colorlet{HeadlineTextColor}{mblue!90}
+\colorlet{FootlineTextColor}{mblue!90}
+
+
+%%%%%-- End of METROPOLIS THEME --%%%%%
 \else
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%                            LIGHT THEME

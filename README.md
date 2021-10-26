@@ -10,7 +10,7 @@ For more information about **knitr** and options of R code chunks, see https://y
 ## Define new colors
 
 
-There are already two color themes in this template: a light and a dark theme. If you want to change the three colors to create another color theme in any file (i.e. .Rnw or .tex), set new RGB color codes in the following commands of the **beamerthemeknitr-beamer-3colors.sty** file:
+There are already four color themes in this template: a light theme, dark theme, black and white theme, and Metropolis theme. If you want to change the colors to create another color theme in any file (i.e. .Rnw or .tex), there are two possibilities. You can either modify the RGB colors in the **beamerthemeknitr-beamer-3colors.sty** file for an existing theme by changing the following commands:
 
 ```tex
 % Define colors
@@ -21,6 +21,23 @@ There are already two color themes in this template: a light and a dark theme. I
 \definecolor{mblack}{rgb}{0,0,0}
 ```
 
+You can also create a brand new theme by adding a conditional statement and a new color customization section, i.e.
+
+```tex
+\newif\if@doNewNameTheme
+\@doNewNameThemefalse
+\DeclareOption{NewNameTheme}{\@doNewNameThemetrue}
+
+...
+
+\if@doNewNameTheme
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%                            NEW NAME THEME
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+...
+```
+
+
 If you are using the Sweave file, modify RGB codes in the first chunk accordingly so that your R outputs fit with the color theme:
 
 ```r
@@ -29,7 +46,7 @@ mred <- function(alpha = 1){rgb(0.9,0.3,0,alpha)}
 mgreen <- function(alpha = 1){rgb(0,0.6,0.35,alpha)}
 ```
 
-To customize even more this beamer template, you can modify commands in the "colors customization" section. You can either create new environments with different colors, redefine colors of R code or change every color displayed in the template from the text to the background.
+To customize even more this beamer template, you can modify commands in the "colors customization" or "configure visual aspects" sections. You can either create new environments with different colors, redefine colors of R code or change every color displayed in the template from the text to the background.
 
 
 If you change several colors or add customization commands, feel free to contribute to this template to enhance its look and usefulness! This template is still under construction.

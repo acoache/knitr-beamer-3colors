@@ -19,6 +19,9 @@
 \newif\if@doDarkTheme
 \@doDarkThemefalse
 \DeclareOption{DarkTheme}{\@doDarkThemetrue}
+\newif\if@doBlackAndWhite
+\@doBlackAndWhitefalse
+\DeclareOption{BlackAndWhite}{\@doBlackAndWhitetrue}
 \ProcessOptions
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -67,6 +70,48 @@
 
 %%%%%-- End of DARK THEME --%%%%%
 \else
+\if@doBlackAndWhite
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%                            BLACK AND WHITE THEME
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Define colors
+\definecolor{mblue}{rgb}{0.15,0.15,0.15}
+\definecolor{mred}{rgb}{0.40,0.40,0.40}
+\definecolor{mgreen}{rgb}{0.90,0.90,0.90}
+\definecolor{mblack}{rgb}{0,0,0}
+\definecolor{mwhite}{rgb}{1,1,1}
+
+\colorlet{FrameTitleLeft}{mblack}
+\colorlet{FrameTitleRight}{mgreen}
+
+% Set different colors
+\colorlet{mblockBgColor}{mred!20}
+\colorlet{mblockTitleBgColor}{mred!30}
+\colorlet{mblockTitleTextColor}{mred}
+
+\colorlet{defntBgColor}{mred!20}
+\colorlet{defntTitleBgColor}{mred!30}
+\colorlet{defntTitleTextColor}{mred}
+
+\colorlet{thmBgColor}{mblue!20}
+\colorlet{thmTitleBgColor}{mblue!30}
+\colorlet{thmTitleTextColor}{mblue}
+
+\colorlet{MainColor}{mblack}
+\colorlet{BgColor}{mwhite}
+\colorlet{NormalTextColor}{black!90}
+\colorlet{TitleTextColor}{mwhite}
+\colorlet{TitleBgColor}{mblack}
+\colorlet{LinkColor}{mred}
+\colorlet{CaptionColor}{mblack}
+\colorlet{AlertColor}{mred}
+\colorlet{HeadlineTextColor}{mblack}
+\colorlet{FootlineTextColor}{mblack!90}
+
+
+%%%%%-- End of BLACK AND WHITE THEME --%%%%%
+\else
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%                            LIGHT THEME
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -108,6 +153,7 @@
 
 %%%%%-- End of LIGHT THEME --%%%%%
 \fi
+\fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%                        Configure visual aspects
@@ -147,7 +193,7 @@
 \setbeamertemplate{headline}{
 	\leavevmode
 	\hbox{
-		\begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.125ex]{mblue}
+		\begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.125ex]{blue}
 			~~~~\insertsection
 		\end{beamercolorbox}
 	}

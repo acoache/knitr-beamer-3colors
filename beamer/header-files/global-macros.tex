@@ -1,0 +1,383 @@
+% --------------------------------------------------------------
+%                         Packages
+% --------------------------------------------------------------
+
+\usepackage{
+	graphicx,
+	amsmath,
+	amssymb,
+	mathtools,
+	url,
+	color,
+	lmodern,
+	setspace,
+	tikz,
+	ifthen,
+	xparse,
+	pgfplots
+	}
+
+% --------------------------------------------------------------
+%                         Packages with settings
+% --------------------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[ruled,linesnumbered,noend]{algorithm2e}
+\usepackage{hyperref}
+
+\usepackage{natbib}
+%\setcitestyle{authoryear,round,citesep={;},aysep={,},yysep={;}}
+\setcitestyle{numbers,square,longnamesfirst}
+
+\usepackage{paralist}
+\renewenvironment{enumerate}[1]{\begin{compactenum}#1}{\end{compactenum}}
+
+\usetikzlibrary{shapes,arrows,trees,automata,positioning,matrix}
+\pgfplotsset{compat=1.16}
+
+% --------------------------------------------------------------
+%                         Preferences settings
+% --------------------------------------------------------------
+
+% Appendix Settings
+\renewcommand{\appendixname}{}
+
+% CleverRef settings
+\usepackage[capitalize,nameinlink]{cleveref}
+\usepackage{crossreftools}
+\pdfstringdefDisableCommands{%
+    \let\Cref\crtCref
+    \let\cref\crtcref
+}
+\newcommand{\creflastconjunction}{, and\nobreakspace}
+\hypersetup{%
+    bookmarksnumbered, bookmarksopen=true, bookmarksopenlevel=1,%
+}
+
+\crefname{subsection}{Subsection}{Subsections}
+\crefname{lemma}{Lemma}{Lemmas}
+\crefname{corollary}{Corollary}{Corollaries}
+\crefname{theorem}{Theorem}{Theorems}
+
+% --------------------------------------------------------------
+%                         Format settings
+% --------------------------------------------------------------
+
+% Equations
+\newcommand{\manualendproof}{\hfill\qedsymbol\\[2mm]}
+
+% All equation numbers same size
+\makeatletter
+\renewcommand{\maketag@@@}[1]{\hbox{\m@th\normalsize\normalfont#1}}%
+\makeatother
+
+% Grey out equation numbers
+\makeatletter
+\let\reftagform@=\tagform@
+\def\tagform@#1{\maketag@@@{\ignorespaces\textcolor{gray}{(#1)}\unskip\@@italiccorr}}
+\renewcommand{\eqref}[1]{\textup{\reftagform@{\ref{#1}}}}
+\makeatother
+
+% --------------------------------------------------------------
+%                         Syntactic macros
+% --------------------------------------------------------------
+
+% Blackboard font
+\providecommand{\AA}{\mathbb{A}}
+\newcommand{\BB}{\mathbb{B}}
+\newcommand{\CC}{\mathbbm{C}}
+\newcommand{\DD}{\mathbbm{D}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\GG}{\mathbb{G}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\II}{\mathbb{I}}
+\newcommand{\JJ}{\mathbb{J}}
+\newcommand{\KK}{\mathbb{K}}
+\newcommand{\LL}{\mathbb{L}}
+\newcommand{\MM}{\mathbb{M}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\OO}{\mathbb{O}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\renewcommand{\SS}{\mathbb{S}}
+\newcommand{\TT}{\mathbb{T}}
+\newcommand{\UU}{\mathbb{U}}
+\newcommand{\VV}{\mathbb{V}}
+\newcommand{\WW}{\mathbb{W}}
+\newcommand{\XX}{\mathbb{X}}
+\newcommand{\YY}{\mathbb{Y}}
+\newcommand{\ZZ}{\mathbb{Z}}
+
+\newcommand{\One}{\mathbbm{1}}
+\newcommand{\Two}{\mathbbm{2}}
+\newcommand{\Three}{\mathbbm{3}}
+\newcommand{\Four}{\mathbbm{4}}
+\newcommand{\Five}{\mathbbm{5}}
+\newcommand{\Six}{\mathbbm{6}}
+\newcommand{\Seven}{\mathbbm{7}}
+\newcommand{\Eight}{\mathbbm{8}}
+\newcommand{\Nine}{\mathbbm{9}}
+\newcommand{\Zero}{\mathbbm{0}}
+
+% Calligraphy Font
+\newcommand{\Aa}{\mathcal{A}}
+\newcommand{\Bb}{\mathcal{B}}
+\newcommand{\Cc}{\mathcal{C}}
+\newcommand{\Dd}{\mathcal{D}}
+\newcommand{\Ee}{\mathcal{E}}
+\newcommand{\Ff}{\mathcal{F}}
+\newcommand{\Gg}{\mathcal{G}}
+\newcommand{\Hh}{\mathcal{H}}
+\newcommand{\Ii}{\mathcal{I}}
+\newcommand{\Jj}{\mathcal{J}}
+\newcommand{\Kk}{\mathcal{K}}
+\newcommand{\Ll}{\mathcal{L}}
+\newcommand{\Mm}{\mathcal{M}}
+\newcommand{\Nn}{\mathcal{N}}
+\newcommand{\Oo}{\mathcal{O}}
+\newcommand{\Pp}{\mathcal{P}}
+\newcommand{\Qq}{\mathcal{Q}}
+\newcommand{\Rr}{\mathcal{R}}
+\newcommand{\Ss}{\mathcal{S}}
+\newcommand{\Tt}{\mathcal{T}}
+\newcommand{\Uu}{\mathcal{U}}
+\newcommand{\Vv}{\mathcal{V}}
+\newcommand{\Ww}{\mathcal{W}}
+\newcommand{\Xx}{\mathcal{X}}
+\newcommand{\Yy}{\mathcal{Y}}
+\newcommand{\Zz}{\mathcal{Z}}
+
+% Bold numbers
+\newcommand{\one}{\mathbf{1}}
+\newcommand{\two}{\mathbf{2}}
+\newcommand{\three}{\mathbf{3}}
+\newcommand{\four}{\mathbf{4}}
+\newcommand{\five}{\mathbf{5}}
+\newcommand{\six}{\mathbf{6}}
+\newcommand{\seven}{\mathbf{7}}
+\newcommand{\eight}{\mathbf{8}}
+\newcommand{\nine}{\mathbf{9}}
+\newcommand{\zero}{\mathbf{0}}
+
+% Nicer greek letters
+\newcommand{\eps}{\varepsilon}
+\newcommand{\gam}{\vargamma}
+
+% --------------------------------------------------------------
+%                         Quality of Life Macros
+% --------------------------------------------------------------
+
+% Math Environments
+% redefines \[ ...\]  mathmode to use AMS "align" environment, which is superior
+\def\[#1\]{\begin{equation}\begin{aligned}#1\end{aligned}\end{equation}}
+\def\*[#1\]{\begin{equation*}\begin{aligned}#1\end{aligned}\end{equation*}}
+\def\s*[#1\s]{\small\begin{align*}#1\end{align*}\normalsize}
+
+% Bracket Shorthand
+\newcommand{\lcr}[3]{\left #1 #2 \right #3} % autosize
+\newcommand{\lcrx}[4][{-1}]{ 
+	\IfEq{#1}{-1}{\left #2 {{{{#3}}}} \right #4}{
+   	\IfEq{#1}{0}{#2 {{{{#3}}}} #4}{
+	\IfEq{#1}{1}{\bigl #2 {{{{#3}}}} \bigr #4}{
+	\IfEq{#1}{2}{\Bigl #2 {{{{#3}}}} \Bigr #4}{
+	\IfEq{#1}{3}{\biggl #2 {{{{#3}}}} \biggr #4}{
+	\IfEq{#1}{4}{\Biggl #2 {{{{#3}}}} \Biggr #4}{
+    \GenericWarning{"4th argument to lcrx must be -1, 0, 1, 2, 3, or 4"}
+    }}}}}}} % specify size with {-1,...4} as optional argument
+
+% Accents
+\newcommand{\ol}{\overline}
+\newcommand{\ul}{\underline}
+\newcommand{\mb}{\mathbf}
+\newcommand{\upper}[1]{^{(#1)}}
+
+% --------------------------------------------------------------
+%                         Semantic Macros
+% --------------------------------------------------------------
+
+
+% Probability operators
+\newcommand{\KL}[2]{\mathrm{KL}\rbra{#1 \ \Vert \ #2}} % Kullback-Leibler divergence
+\DeclareMathOperator*{\sdev}{StdDev} % standard deviation
+\DeclareMathOperator{\E}{\EE} % Expectation
+\DeclareMathOperator{\Var}{Var} % Variance
+\DeclareMathOperator{\Prob}{\PP} % Probability
+\DeclareMathOperator{\Cov}{Cov} % Covariance
+\DeclareMathOperator{\Corr}{Corr} % Correlation
+\DeclareMathOperator{\Bias}{Bias} % Bias
+\DeclareMathOperator{\Mse}{MSE} % Mean square error
+\DeclareMathOperator{\R}{R} % R squared
+\newcommand{\prodmeas}[1]{^{\otimes #1}}
+\newcommand{\suchthat}{\;\ifnum\currentgrouptype=16 \middle\fi|\;} % Vertical bar
+\DeclareMathOperator{\indep}{\mathrel{\text{\scalebox{1.07}{$\perp\mkern-10mu\perp$}}}} % Independance.
+\newcommand{\negsetdelim}{\vert}
+\newcommand{\setdelim}{\ \vert \ }
+\newcommand{\Bigsetdelim}{\ \Big\vert \ }
+\newcommand{\Biggsetdelim}{\ \Bigg\vert \ }
+\newcommand{\iid}{\text{i.i.d.}}
+\newcommand{\IID}{\text{I.I.D.}}
+\newcommand{\as}{\text{a.s.}}
+
+
+% Words in math
+\newcommand{\stT}{\ \text{s.t.}\ }
+\newcommand{\andT}{\ \text{and}\ }
+\newcommand{\orT}{\ \text{or}\ }
+\newcommand{\whereT}{\ \text{where}\ }
+\newcommand{\withT}{\ \text{with}\ }
+
+
+% Special functions
+\DeclareMathOperator{\linspan}{span}
+\DeclareMathOperator{\logit}{logit}
+\DeclareMathOperator{\sgn}{sgn}
+\newcommand{\Ind}{\mathds 1} % indicator function
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+
+
+% Limit-like operators
+\DeclareMathOperator*{\argmin}{\arg\min} % argmin
+\DeclareMathOperator*{\argmax}{\arg\max} % argmax
+\DeclareMathOperator*{\esssup}{\text{ess}\sup} % essential supremum
+\DeclareMathOperator*{\essinf}{\text{ess}\inf} % essential infemum
+
+% Fixes to the standard operators to improve kerning
+\DeclareMathOperator*{\newlim}{\mathrm{lim}\vphantom{\mathrm{infsup}}}
+\DeclareMathOperator*{\newmin}{\mathrm{min}\vphantom{\mathrm{infsup}}}
+\DeclareMathOperator*{\newmax}{\mathrm{max}\vphantom{\mathrm{infsup}}}
+\DeclareMathOperator*{\newinf}{\mathrm{inf}\vphantom{\mathrm{infsup}}}
+\DeclareMathOperator*{\newsup}{\mathrm{sup}\vphantom{\mathrm{infsup}}}
+\renewcommand{\lim}{\newlim}
+\renewcommand{\min}{\newmin}
+\renewcommand{\max}{\newmax}
+\renewcommand{\inf}{\newinf}
+\renewcommand{\sup}{\newsup}
+
+
+% Linear Algebra
+\newcommand{\tr}{^\text{T}} % transpose
+\newcommand{\trace}{\mathrm{Tr}} % trace
+\newcommand{\adj}{^{\dag}} % adjoint
+\DeclareMathOperator{\spec}{\sigma} % spectrum
+\DeclareMathOperator{\diag}{diag} % diagonal
+\DeclareMathOperator{\rank}{rank} % rank
+
+
+% Calculus
+\newcommand{\dee}{\mathrm{d}} % for integrals \int f(x) \dee x
+\newcommand{\grad}[1]{\nabla_{#1}} % gradient
+\newcommand{\laplace}{\Delta} % laplacian
+\newcommand{\hess}{\grad^2} % hessian
+\DeclareMathOperator*{\divergence}{div} % divergence
+\newcommand{\jacobian}{J}
+\newcommand{\conv}{*}
+
+
+% Measure Theory
+%\newcommand{\pdiff}[2]{\frac{\partial #1}{\partial #2}}
+%\newcommand{\diff}[2]{\frac{\dee #1}{\dee #2}}
+\DeclareDocumentCommand{\virtualDiff}{m m G{} G{}}{\frac{#1^{#4} \kern 1pt #3}{#1 \kern 1pt #2^{#4}}}
+\DeclareDocumentCommand{\pdiff}{m G{} G{}}{\virtualDiff{\partial}{#1}{#2}{#3}} % Partial derivative \pdiff{denominator}{optional numerator}{optional exponant}
+\DeclareDocumentCommand{\diff}{m G{} G{}}{\virtualDiff{\text d}{#1}{#2}{#3}} % Derivative
+\DeclareMathOperator{\supp}{Support}
+
+
+% Probability Theory
+\newcommand{\distto}{\rightsquigarrow}
+\newcommand{\disttosk}{\Rightarrow}
+\newcommand{\universe}{\Omega}
+
+\newcommand{\distas}{\sim}
+\newcommand{\distiidas}{\stk{\distas}{iid}}
+\newcommand{\distindas}{\stk{\distas}{ind}}
+
+\newcommand{\pushfwdmeas}[2]{{{#1}_{\sharp} #2}}
+\newcommand{\Law}{\Ll}
+\newcommand{\cLaw}[1]{\Law^{#1}} % Conditional law
+\newcommand{\kernels}{\Kk}
+
+
+% Special Distributions
+\newcommand{\poissondist}{\mathrm{Pois}}
+\newcommand{\negbinomialdist}{\mathrm{NBin}}
+\newcommand{\binomialdist}{\mathrm{Bin}}
+\newcommand{\bernoullidist}{\mathrm{Ber}}
+\newcommand{\betadist}{\mathrm{Beta}}
+\newcommand{\geometricdist}{\mathrm{Geom}}
+\newcommand{\hypergeometricdist}{\mathrm{HGeom}}
+\newcommand{\exponentialdist}{\mathrm{Exp}}
+\newcommand{\gammadist}{\mathrm{Gamma}}
+\newcommand{\normaldist}{\mathrm{Nor}}
+\newcommand{\lognormaldist}{\mathrm{LogN}}
+\newcommand{\uniformdist}{\mathrm{Unif}}
+
+
+% Brackets and bracket-like functions
+\newcommand{\rbra}[2][{-1}]{\lcrx[#1] ( {#2} ) }
+\newcommand{\cbra}[2][{-1}]{\lcrx[#1] \{ {#2} \} }
+\newcommand{\sbra}[2][{-1}]{\lcrx[#1] [ {#2} ] }
+
+\newcommand{\abs}[2][{-1}]{\lcrx[#1] \vert {#2} \vert }
+\newcommand{\set}[2][{-1}]{\lcrx[#1] \{ {#2} \}}
+\newcommand{\floor}[2][{-1}]{\lcrx \lfloor {#2} \rfloor}
+\newcommand{\ceil}[2][{-1}]{\lcrx[#1] \lceil {#2} \rceil}
+\newcommand{\norm}[2][{-1}]{\lcrx[#1] \Vert {#2} \Vert}
+\newcommand{\inner}[3][{-1}]{\lcrx[#1] \langle {{#2},\ {#3}} \rangle}
+\newcommand{\card}[2][{-1}]{\lcrx[#1] \vert {#2} \vert }
+
+
+% Definition 
+\DeclareMathOperator{\eqd}{\overset{d}{=}} % Equality in distribution.
+\DeclareMathOperator{\convd}{\overset{d}{\longrightarrow}} % Convergence in distribution.
+\DeclareMathOperator{\convp}{\overset{p}{\longrightarrow}} % Convergence in probability.
+\DeclareMathOperator{\convas}{\overset{a.s.}{\longrightarrow}} % Convergence almost surely.
+
+% Special Sets
+\newcommand{\Nats}{\NN}
+\newcommand{\NatsO}{\Nats\cup\set{0}}
+\newcommand{\Ints}{\ZZ}
+\newcommand{\Rationals}{\QQ}
+\newcommand{\Rats}{\Rationals}
+\newcommand{\Reals}{\RR}
+\newcommand{\ExtReals}{\overline{\Reals}}
+\newcommand{\PosInts}{\Ints_+}
+\newcommand{\PosReals}{\Reals_+}
+\newcommand{\Measures}{\mathcal{M}}
+\newcommand{\ProbMeasures}{\mathcal{M}_1}
+
+\newcommand{\range}[2][{1}]{
+	\IfEq{#1}{1}{\sbra{#2}}{\sbra{#2}_{#1}}}
+\newcommand{\rangeO}[2][{0}]{
+	\IfEq{#1}{0}{\sbra{#2}_0}{\sbra{#2}_{#1}}}
+
+
+\newcommand{\ointer}[2][{-1}]{\lcrx[#1] ( {#2} ) }
+\newcommand{\cinter}[2][{-1}]{\lcrx[#1] [ {#2} ] }
+\newcommand{\ocinter}[2][{-1}]{\lcrx[#1] ( {#2} ] }
+\newcommand{\cointer}[2][{-1}]{\lcrx[#1] [ {#2} ) }
+	
+
+% Set Operations
+\newcommand{\PowerSet}{\mathcal{P}}
+
+\newcommand{\union}{\cup}
+\newcommand{\Union}{\bigcup}
+\newcommand{\djunion}{\sqcup}
+\newcommand{\djUnion}{\bigsqcup}
+
+\newcommand{\intersect}{\cap}
+\newcommand{\Intersect}{\bigcap}
+
+\newcommand{\vol}{\mathrm{Vol}}
+\newcommand{\diam}{\mathrm{diam}}
+\DeclareMathOperator{\proj}{proj}
+
+\newcommand{\isomporphic}{\cong}
+
+\DeclareMathOperator{\domain}{dom}
+\DeclareMathOperator{\codomain}{codom}
+
+\DeclareMathOperator{\interior}{interior}
+\newcommand{\boundary}{\partial}
+

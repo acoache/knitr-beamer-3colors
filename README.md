@@ -1,7 +1,7 @@
 ## Sweave/TeX template for beamer presentations
 
 
-This Sweave/TeX template for beamer presentations uses three colors, mainly a theme color (blue), an alert color (orange) and a third color (green) that are easily customizable. R code and outputs fit with the colors defined in the template.
+This Sweave/TeX template for beamer presentations uses three colors, mainly a theme color (mblue), an alert color (mred) and a third color (mgreen) that are easily customizable. R code and outputs fit with the colors defined in the template.
     
 If you want to add R codes and outputs in your slides, use the Sweave (.Rnw) file so their colors will fit with the theme of the beamer. Otherwise you can use either the Sweave or TeX (.tex) file.
 
@@ -10,7 +10,7 @@ For more information about **knitr** and options of R code chunks, see https://y
 ## Define new colors
 
 
-There are already four color themes in this template: a light theme, dark theme, black and white theme, and Metropolis theme. If you want to change the colors to create another color theme in any file (i.e. .Rnw or .tex), there are two possibilities. You can either modify the RGB colors in the **beamerthemeknitr-beamer-3colors.sty** file for an existing theme by changing the following commands:
+There are already implemented color themes in this template: light theme, dark theme, black and white, Metropolis theme, and INFORMS theme. If you want to change the colors to create another color theme in any file (i.e. .Rnw or .tex), there are two possibilities. You can either modify the RGB colors in the **beamerthemeknitr-beamer-3colors.sty** file for an existing theme by changing the following commands:
 
 ```tex
 % Define colors
